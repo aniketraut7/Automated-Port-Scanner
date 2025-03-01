@@ -19,3 +19,20 @@ Ensure you have the following installed before running the script:
 2. Install required dependencies:
    ```bash
    pip install -r requirements.txt
+
+🎯 Usage
+
+    Clone the repository:
+
+git clone https://github.com/aniketraut7/Automated-Vulnerability-Scanner.git
+cd Automated-Vulnerability-Scanner
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+Run the script:
+
+python scanner.py
+
+Enter the target IP or domain when prompted.
