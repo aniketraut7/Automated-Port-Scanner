@@ -1,0 +1,7 @@
+argparse>=1.4.0
+colorama>=0.4.4
+nmap>=0.0.1
+python-nmap>=0.7.1
+requests>=2.26.0
+scapy>=2.4.5
+shodan>=1.27.0
