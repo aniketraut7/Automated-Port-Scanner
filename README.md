@@ -25,7 +25,7 @@ python scanner.py <target> -p <ports>
 python scanner.py <target> -p <ports>
 
 Example:
-python scanner.py 192.168.1.1 -p 80,443,22
+python scanner.py 192.168.1.1 -p 80,443,21
 
 📝 Requirements
     Python 3.x
