@@ -1,46 +1,61 @@
+import argparse
 import nmap
-import shodan
+from rich.console import Console
+from rich.table import Table
+from rich.text import Text
+from rich.progress import Progress
 
-# Set your Shodan API key here
-SHODAN_API_KEY = "UeXxptNxjyKXZGHh9bGhM7PnqF5XpNLn"
+# Initialize rich console
+console = Console()
 
-def scan_ports(target):
-    """Scan open ports using Nmap"""
-    scanner = nmap.PortScanner()
-    scanner.scan(target, arguments="-sV")  # Scans for open ports & versions
+# Banner function
+def print_banner():
+    banner = Text("""
+    █████╗ ██╗   ██╗ ██████╗ ███████╗██╗      ██████╗ ██╗   ██╗
+   ██╔══██╗██║   ██║██╔════╝ ██╔════╝██║     ██╔═══██╗██║   ██║
+   ███████║██║   ██║██║  ███╗█████╗  ██║     ██║   ██║██║   ██║
+   ██╔══██║██║   ██║██║   ██║██╔══╝  ██║     ██║   ██║██║   ██║
+   ██║  ██║╚██████╔╝╚██████╔╝███████╗███████╗╚██████╔╝╚██████╔╝
+   ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚══════╝╚══════╝ ╚═════╝  ╚═════╝
+    """, style="bold red")
+    console.print(banner)
+    console.print("[bold cyan]🔍 Automated Vulnerability Scanner - Kali Linux Edition[/bold cyan]")
 
-    open_ports = {}
-    for host in scanner.all_hosts():
-        for port, details in scanner[host]['tcp'].items():
-            open_ports[port] = details['name']
+# Perform a basic port scan
+def scan_target(target, ports):
+    nm = nmap.PortScanner()
+
+    console.print(f"\n[bold yellow]🔎 Scanning {target} on ports {ports}...[/bold yellow]\n")
+
+    with Progress() as progress:
+        task = progress.add_task("[cyan]Scanning...", total=100)
+        for _ in range(10):
+            progress.update(task, advance=10)
+
+    nm.scan(target, ports)
     
-    return open_ports
+    table = Table(title=f"Scan Results for {target}", show_header=True, header_style="bold magenta")
+    table.add_column("Port", justify="right", style="cyan")
+    table.add_column("State", justify="center", style="green")
+    table.add_column("Service", justify="left", style="yellow")
 
-def check_vulnerabilities(port, service):
-    """Check for vulnerabilities using Shodan API"""
-    api = shodan.Shodan(SHODAN_API_KEY)
-    try:
-        results = api.search(service)
-        for result in results['matches'][:5]:  # Limit results for readability
-            print(f"⚠️ Possible Vulnerability Found: {result['ip_str']} - {result['hostnames']}")
-    except shodan.APIError as e:
-        print(f"Shodan API Error: {e}")
+    for port in nm[target]['tcp']:
+        state = nm[target]['tcp'][port]['state']
+        service = nm[target]['tcp'][port]['name']
+        table.add_row(str(port), state, service)
 
+    console.print(table)
+
+# CLI argument handling
 def main():
-    target = input("Enter target IP/Domain: ")
-    print("\n🔍 Scanning for open ports...\n")
+    print_banner()
 
-    open_ports = scan_ports(target)
-    
-    if not open_ports:
-        print("❌ No open ports found.")
-        return
+    parser = argparse.ArgumentParser(description="Automated Vulnerability Scanner - Kali Edition")
+    parser.add_argument("target", help="Target IP address or hostname")
+    parser.add_argument("-p", "--ports", default="1-1000", help="Port range to scan (default: 1-1000)")
 
-    print(f"✅ Found Open Ports: {open_ports}")
-
-    for port, service in open_ports.items():
-        print(f"\n🔎 Checking vulnerabilities for {service} on port {port}...")
-        check_vulnerabilities(port, service)
+    args = parser.parse_args()
+    scan_target(args.target, args.ports)
 
 if __name__ == "__main__":
     main()
