@@ -18,6 +18,8 @@ python3 -m venv venv
 echo "[+] Activating the virtual environment..."
 source venv/bin/activate
 
+pip install -r requirements.txt
+
 # Step 5: Install Python dependencies
 echo "[+] Installing necessary Python libraries..."
 pip install --upgrade pip
