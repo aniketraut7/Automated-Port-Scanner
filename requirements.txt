@@ -4,3 +4,4 @@ requests
 shodan
 scapy
 python-nmap
+rich
