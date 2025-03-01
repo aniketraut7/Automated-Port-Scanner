@@ -19,13 +19,13 @@ This tool is built using `nmap` and provides **rich terminal output** with an in
 git clone https://github.com/YOUR_USERNAME/Automated-Vulnerability-Scanner.git
 cd Automated-Vulnerability-Scanner
 bash setup.sh
-sudo mv kali_scanner /usr/local/bin/
+python scanner.py <target> -p <ports>
 
 🔍 Usage:
-kali_scanner <target> -p <ports>
+python scanner.py <target> -p <ports>
 
 Example:
-kali_scanner 192.168.1.1 -p 80,443,22
+python scanner.py 192.168.1.1 -p 80,443,22
 
 📝 Requirements
     Python 3.x
