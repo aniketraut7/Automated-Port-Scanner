@@ -1,1 +1,0 @@
-# Automated Vulnerability Scanner
