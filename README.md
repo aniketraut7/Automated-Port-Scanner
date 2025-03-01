@@ -1,39 +1,37 @@
-# 🔍 Automated Vulnerability Scanner
+## 🚀 Automated Vulnerability Scanner 
 
-This Python script scans a target for open ports using **Nmap** and retrieves known vulnerabilities from **Shodan API**. It is designed for **ethical hacking, VAPT (Vulnerability Assessment and Penetration Testing), and cybersecurity learning**.
+## 🚀 Overview
+**Automated Vulnerability Scanner** is a **Python-based security tool** designed to scan open ports and detect vulnerabilities in a target system. It is optimized for **Kali Linux** and other **Pentesting environments**.
 
----
-
-## 🚀 Features
-✅ **Scans open ports** using Nmap  
-✅ **Identifies running services** on detected ports  
-✅ **Fetches known vulnerabilities** from Shodan API  
-✅ **Automated and easy to use**  
+This tool is built using `nmap` and provides **rich terminal output** with an interactive CLI.
 
 ---
+## 🎯 **Features**
+✅ **Automated Port Scanning** using `nmap`  
+✅ **Supports custom port ranges**  
+✅ **Rich UI using `rich` library for better readability**  
+✅ **Lightweight and optimized for Kali Linux**  
+✅ **Command-line Interface (CLI) for easy usage**  
 
-## 📌 Prerequisites
-Ensure you have the following installed before running the script:
 
-1. **Python 3.x** installed ([Download Python](https://www.python.org/downloads/))
-2. Install required dependencies:
-   ```bash
-   pip install -r requirements.txt
-
-🎯 Usage
-
-### Installation & Setup
-
-1️⃣ Clone the repository:  
+### 📥 Installation:
 ```bash
 git clone https://github.com/YOUR_USERNAME/Automated-Vulnerability-Scanner.git
 cd Automated-Vulnerability-Scanner
- Run the setup script:
 bash setup.sh
-python scanner.py
+sudo mv kali_scanner /usr/local/bin/
 
+🔍 Usage:
+kali_scanner <target> -p <ports>
+
+Example:
+kali_scanner 192.168.1.1 -p 80,443,22
+
+📝 Requirements
+    Python 3.x
+    nmap installed (apt install nmap for Linux)
+    Required Python libraries (pip install -r requirements.txt)
 
 📩 Contact
-
 🔗 GitHub: @aniketraut7
 ✉️ Email: aniketsraut7@gmail.com
