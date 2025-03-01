@@ -36,3 +36,8 @@ Run the script:
 python scanner.py
 
 Enter the target IP or domain when prompted.
+
+📩 Contact
+
+🔗 GitHub: @aniketraut7
+✉️ Email: aniketsraut7@gmail.com
