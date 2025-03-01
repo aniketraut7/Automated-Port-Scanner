@@ -18,8 +18,10 @@ This tool is built using `nmap` and provides **rich terminal output** with an in
 ```bash
 git clone https://github.com/YOUR_USERNAME/Automated-Vulnerability-Scanner.git
 cd Automated-Vulnerability-Scanner
-bash setup.sh
-python scanner.py <target> -p <ports>
+chmod +x setup.sh  # Make script executable
+./setup.sh         # Run setup
+source venv/bin/activate  # Activate environment
+python scanner.py <target>  # Run scanner
 
 🔍 Usage:
 python scanner.py <target> -p <ports>
