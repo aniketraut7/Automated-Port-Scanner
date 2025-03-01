@@ -22,20 +22,16 @@ Ensure you have the following installed before running the script:
 
 🎯 Usage
 
-    Clone the repository:
+### Installation & Setup
 
-git clone https://github.com/aniketraut7/Automated-Vulnerability-Scanner.git
+1️⃣ Clone the repository:  
+```bash
+git clone https://github.com/YOUR_USERNAME/Automated-Vulnerability-Scanner.git
 cd Automated-Vulnerability-Scanner
-
-Install dependencies:
-
-pip install -r requirements.txt
-
-Run the script:
-
+ Run the setup script:
+bash setup.sh
 python scanner.py
 
-Enter the target IP or domain when prompted.
 
 📩 Contact
 
