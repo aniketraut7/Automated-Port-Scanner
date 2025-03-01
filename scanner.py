@@ -2,6 +2,7 @@ import nmap
 import argparse
 import sys
 from rich.console import Console
+from rich.progress import Progress
 from rich.progress import track
 from time import sleep
 
