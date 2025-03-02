@@ -1,7 +1,7 @@
-## 🚀 Automated Vulnerability Scanner 
+## 🚀 Automated Port Scanner 
 
 ## 🚀 Overview
-**Automated Vulnerability Scanner** is a **Python-based security tool** designed to scan open ports and detect vulnerabilities in a target system. It is optimized for **Kali Linux** and other **Pentesting environments**.
+**Automated Port Scanner** is a **Python-based security tool** designed to scan open ports and detect open Ports in a target system. It is optimized for **Kali Linux** and other **Pentesting environments**.
 
 This tool is built using `nmap` and provides **rich terminal output** with an interactive CLI.
 
@@ -16,8 +16,8 @@ This tool is built using `nmap` and provides **rich terminal output** with an in
 
 ### 📥 Installation:
 ```bash
-git clone https://github.com/YOUR_USERNAME/Automated-Vulnerability-Scanner.git
-cd Automated-Vulnerability-Scanner
+git clone https://github.com/YOUR_USERNAME/Automated-Port-Scanner.git
+cd Automated-Port-Scanner
 chmod +x setup.sh  # Make script executable
 ./setup.sh         # Run setup
 source venv/bin/activate  # Activate environment
@@ -29,10 +29,12 @@ python scanner.py <target> -p <ports>
 Example:
 python scanner.py 192.168.1.1 -p 80,443,21
 
+```
+
 📝 Requirements
     Python 3.x
     nmap installed (apt install nmap for Linux)
-    Required Python libraries (pip install -r requirements.txt)
+    
 
 📩 Contact
 🔗 GitHub: @aniketraut7
