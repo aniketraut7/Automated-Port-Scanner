@@ -1,28 +1,20 @@
 import nmap
 import argparse
 import sys
-from rich.console import Console
-from rich.progress import Progress
-from rich.progress import track
+import pyfiglet
 from time import sleep
+from rich.console import Console
+from rich.progress import track
 
 console = Console()
 
-# Banner
-import pyfiglet
-from rich.console import Console
-
 def print_banner():
-    console = Console()
     banner_text = pyfiglet.figlet_format("Auto_Scanner")  # Generate ASCII text
     banner = f"""
 {banner_text}
 🔍 Auto_Scanner - Kali Linux Edition
 """
     console.print(banner, style="bold cyan")
-
-print_banner()  # Call the function to display the banner
-
 
 # Scan function
 def scan_target(target, ports):
@@ -32,7 +24,12 @@ def scan_target(target, ports):
     for _ in track(range(10), description="Scanning..."):
         sleep(0.3)
 
-    nm = nmap.PortScanner()
+    # Check if Nmap is installed
+    try:
+        nm = nmap.PortScanner()
+    except nmap.nmap.PortScannerError:
+        console.print("[red]❌ Nmap is not installed! Install it and try again.[/red]", style="bold red")
+        sys.exit(1)
     
     try:
         nm.scan(target, ports)
@@ -47,9 +44,8 @@ def scan_target(target, ports):
     except Exception as e:
         console.print(f"[red]❌ Error:[/red] {str(e)}", style="bold red")
 
-# Main function
 def main():
-    print_banner()
+    print_banner()  # ✅ Keep only this call
     
     parser = argparse.ArgumentParser(description="Auto_Scanner - A Kali Linux Vulnerability Scanner")
     parser.add_argument("target", help="Target IP or Domain")
