@@ -31,15 +31,21 @@ Example:
 python scanner.py 192.168.1.1 -p 80,443,21
 
 ```
-### Example Output
-Target: 192.168.1.1
-Port Range: 20-100
+```
+## 📸 Example Output
 
-Scanning...
+Enter the target IP or domain: 192.168.1.1
+Enter the starting port: 20
+Enter the ending port: 100
+
+[+] Scanning 192.168.1.1 from port 20 to 100...
+
 [+] Port 22 is open
 [+] Port 80 is open
-Scan completed in 0.76 seconds.
 
+Scan completed in 0.76 seconds.
+```
+```
 📝 Requirements
     Python 3.x
     nmap installed (apt install nmap for Linux)
@@ -48,3 +54,4 @@ Scan completed in 0.76 seconds.
 📩 Contact
 🔗 GitHub: @aniketraut7
 ✉️ Email: aniketsraut7@gmail.com
+```
