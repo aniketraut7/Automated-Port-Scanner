@@ -1,17 +1,17 @@
-## 🚀 Automated Port Scanner 
+# 🔍 Automated Port Scanner
 
-## 🚀 Overview
-**Automated Port Scanner** is a **Python-based security tool** designed to scan open ports and detect open Ports in a target system. It is optimized for **Kali Linux** and other **Pentesting environments**.
-
-This tool is built using `nmap` and provides **rich terminal output** with an interactive CLI.
+A fast and simple Python-based port scanner built using the `socket` module. Ideal for beginners and cybersecurity enthusiasts practicing reconnaissance techniques.
 
 ---
-## 🎯 **Features**
-✅ **Automated Port Scanning** using `nmap`  
-✅ **Supports custom port ranges**  
-✅ **Rich UI using `rich` library for better readability**  
-✅ **Lightweight and optimized for Kali Linux**  
-✅ **Command-line Interface (CLI) for easy usage**  
+
+## ⚙️ Features
+
+- 🔎 Scan specific IPs or domains
+- 📍 Define custom port ranges
+- ✅ Clean output with open ports
+- 🧱 Pure Python — no external libraries
+
+---
 
 
 ### 📥 Installation:
@@ -22,6 +22,7 @@ chmod +x setup.sh  # Make script executable
 ./setup.sh         # Run setup
 source venv/bin/activate  # Activate environment
 python scanner.py <target>  # Run scanner
+
 
 🔍 Usage:
 python scanner.py <target> -p <ports>
