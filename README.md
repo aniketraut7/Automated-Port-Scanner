@@ -31,6 +31,14 @@ Example:
 python scanner.py 192.168.1.1 -p 80,443,21
 
 ```
+### Example Output
+Target: 192.168.1.1
+Port Range: 20-100
+
+Scanning...
+[+] Port 22 is open
+[+] Port 80 is open
+Scan completed in 0.76 seconds.
 
 📝 Requirements
     Python 3.x
